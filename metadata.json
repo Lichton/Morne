@@ -3,7 +3,7 @@
 	"name": "Morne",
 	"display_name": "Morne",
 	"author": ["Tay"],
-	"description": "A mod attempting to add the most vanilla-adjacent content it can manage.",
+	"description": "A mod attempting to add the most vanilla-adjacent content it can manage. Featuring art and ideas from Marmo, Dui Mauris Football, Tortilla, WolfaCola, Artist_Zero, CrazyAceKing, and code by Tay!",
 	"prefix": "morne",
 	"main_file": "morne.lua",
 	"priority": 0,
