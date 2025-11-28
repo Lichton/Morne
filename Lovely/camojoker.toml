@@ -1,0 +1,32 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 1
+
+[[patches]]
+[patches.pattern]
+target = 'functions/misc_functions.lua'
+pattern = '''local flush_count = 0
+''' 
+position = "after"
+match_indent = true
+payload = '''
+local lim = 0
+'''
+
+[[patches]]
+[patches.pattern]
+target = 'functions/misc_functions.lua'
+pattern = '''if hand[i]:is_suit(suit, nil, true) then flush_count = flush_count + 1;  t[#t+1] = hand[i] end
+'''
+position = "before" 
+match_indent = true
+payload = '''
+if next(SMODS.find_card('j_morne_camo_joker')) then
+    if not hand[i]:is_suit(suit, nil, true) and lim < 2 then
+        flush_count = flush_count + 1
+        t[#t+1] = hand[i]
+        lim = lim + 1
+    end
+end
+'''

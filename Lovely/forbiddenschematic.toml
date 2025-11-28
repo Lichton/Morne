@@ -1,0 +1,22 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 1
+
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''-- TARGET: main scoring on played cards
+''' 
+position = "after"
+match_indent = true
+payload = '''
+local has_fs_joker = next(SMODS.find_card("j_morne_forbidden_schematic"))
+if has_fs_joker then
+    if card:get_id() == 4 or card:get_id() == 9 then
+        ret.playing_card.mult = ret.playing_card.mult or 0
+        ret.playing_card.mult = ret.playing_card.mult + ret.playing_card.chips
+        ret.playing_card.chips = 0
+    end
+end
+'''

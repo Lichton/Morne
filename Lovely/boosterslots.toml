@@ -1,0 +1,23 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 1
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = '''G.GAME.pack_choices = self.config.center.config.choose or 1
+''' 
+position = "after"
+match_indent = true
+payload = '''
+print('hi3')
+if G.GAME.used_vouchers.v_morne_bushel then
+    print('hi')
+    G.GAME.pack_size = G.GAME.pack_size + 1
+end
+if G.GAME.used_vouchers.v_morne_cornucopia then
+    print('hi2')
+    G.GAME.pack_size = G.GAME.pack_size + 1
+end
+'''

@@ -1,0 +1,15 @@
+{
+	"id": "morne",
+	"name": "Morne",
+	"display_name": "Morne",
+	"author": ["Tay"],
+	"description": "A mod attempting to add the most vanilla-adjacent content it can manage.",
+	"prefix": "morne",
+	"main_file": "morne.lua",
+	"priority": 0,
+	"version": "1.0.0",
+	"dependencies": [
+		"Steamodded (>=1.*)",
+		"Lovely (>=0.6)"
+    ]
+}
