@@ -1,6 +1,6 @@
 SMODS.Joker {
 	key = 'nickel_and_dime',
-	config = { extra = { xmult = 2, minusmoney = 1} },
+	config = { extra = { xmult = 2, minusmoney = 2} },
 	loc_vars = function(self, info_queue, card)
 		return { 
 			vars = { 

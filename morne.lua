@@ -17,6 +17,13 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+  key = "Tags",
+  path = "Tags.png",
+  px = 34,
+  py = 34
+}
+
+SMODS.Atlas {
   key = 'modicon',
   px = 32,
   py = 32,
@@ -40,6 +47,7 @@ SMODS.current_mod.optional_features = {
 
 --Commons
 assert(SMODS.load_file('Items/jokers/grotesque_joker.lua'))()
+assert(SMODS.load_file('Items/jokers/loathsome_joker.lua'))()
 assert(SMODS.load_file('Items/jokers/dopplejoker.lua'))()
 assert(SMODS.load_file('Items/jokers/tentajoker.lua'))()
 assert(SMODS.load_file('Items/jokers/blind_joker.lua'))()
@@ -49,8 +57,10 @@ assert(SMODS.load_file('Items/jokers/iceberg.lua'))()
 assert(SMODS.load_file('Items/jokers/lone_pawn.lua'))()
 assert(SMODS.load_file('Items/jokers/forbidden_schematic.lua'))()
 assert(SMODS.load_file('Items/jokers/striped_paint.lua'))()
+assert(SMODS.load_file('Items/jokers/mirror_image.lua'))()
 assert(SMODS.load_file('Items/jokers/contact_binary.lua'))()
 assert(SMODS.load_file('Items/jokers/sinking_feeling.lua'))()
+assert(SMODS.load_file('Items/jokers/lemon.lua'))()
 --Uncommons
 assert(SMODS.load_file('Items/jokers/cardboard_cutout.lua'))()
 assert(SMODS.load_file('Items/jokers/camo_joker.lua'))()
@@ -65,8 +75,11 @@ assert(SMODS.load_file('Items/jokers/dead_weight.lua'))()
 assert(SMODS.load_file('Items/jokers/nickel_and_dime.lua'))()
 assert(SMODS.load_file('Items/jokers/ad_infinitum.lua'))()
 assert(SMODS.load_file('Items/jokers/tenancy.lua'))()
+assert(SMODS.load_file('Items/jokers/plastic_glove.lua'))()
+
 --Rares
 assert(SMODS.load_file('Items/jokers/stained_joker.lua'))()
+assert(SMODS.load_file('Items/jokers/backwards_joker.lua'))()
 assert(SMODS.load_file('Items/jokers/smog.lua'))()
 assert(SMODS.load_file('Items/jokers/dumpster_diving.lua'))()
 assert(SMODS.load_file('Items/jokers/eruption.lua'))()
@@ -83,4 +96,4 @@ assert(SMODS.load_file('Items/blinds/smudge.lua'))()
 assert(SMODS.load_file('Items/blinds/myriad.lua'))()
 assert(SMODS.load_file('Items/blinds/morph.lua'))()
 assert(SMODS.load_file('Items/blinds/drab.lua'))()
---assert(SMODS.load_file('Items/blinds/bile.lua'))()
+assert(SMODS.load_file('Items/blinds/bile.lua'))()

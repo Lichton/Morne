@@ -46,7 +46,7 @@ SMODS.Joker {
                 }
             end
         end
-        if context.hand_drawn then
+        if context.hand_drawn and not context.blueprint then
             for _, card_in_draw in ipairs(context.hand_drawn) do
                 if card_in_draw.facing == 'back' then
                     card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_gain

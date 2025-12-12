@@ -19,45 +19,27 @@ SMODS.Joker {
 				end
 			end
 			if #my_cards > 0 then
+				play_sound('card1', percent)
+				for i, card_in_hand in pairs(my_cards) do
+					card_in_hand:flip()
+					SMODS.modify_rank(card_in_hand, 1)
+					card_in_hand:juice_up(0.3, 0.3)
+					card:juice_up()
+				end 
 				G.E_MANAGER:add_event(Event({
                     trigger = 'after',
-                    delay = 0.1,
-                    func = function()
-						play_sound('card1', percent)
-						for i, card_in_hand in pairs(my_cards) do
-                        	card_in_hand:flip()
-                        	
-                        	card_in_hand:juice_up(0.3, 0.3)
-						end
-                        return true
-					end
-                }))
-				delay(0.2)
-					G.E_MANAGER:add_event(Event({
-                    trigger = 'after',
-                    delay = 0.1,
-                    func = function()
-						for i, card_in_hand in pairs(my_cards) do
-                        	SMODS.modify_rank(card_in_hand, 1)
-							card:juice_up(0.3, 0.3)
-						end
-                        return true
-					end
-				}))
-				G.E_MANAGER:add_event(Event({
-                    trigger = 'after',
-                    delay = 0.15 + (0.35),
+                    delay = 0.25,
                     func = function()
 						play_sound('tarot2', percent)
 						for i, card_in_hand in pairs(my_cards) do
                         	card_in_hand:flip()
-                        	
+                        	card:juice_up()
                         	card_in_hand:juice_up(0.3, 0.3)
                         end
 						return true
 					end
                 }))
-				delay(0.4)	
+				delay(0.2)	
 			end
 		end
 	end

@@ -30,8 +30,16 @@ SMODS.Joker {
                     local not_discards = {}
                     _enhancement = carder.config.center.key
                     for _, card_in_hand in ipairs(G.hand.cards) do
-                        if G.hand.cards[_].config.center == G.P_CENTERS.c_base then
-                            table.insert(not_discards, G.hand.cards[_])
+                        local ebil = false
+                        for _, carder in ipairs(G.hand.highlighted) do
+                            if carder == card_in_hand then
+                                ebil = true
+                            end
+                        end
+                        if ebil == false then
+                            if G.hand.cards[_].config.center == G.P_CENTERS.c_base then
+                                table.insert(not_discards, G.hand.cards[_])
+                            end
                         end
                     end
                     --[[for _, card_in_hand in ipairs(not_discards) do
@@ -45,14 +53,7 @@ SMODS.Joker {
                         evil = true
                         _card = pseudorandom_element(not_discards, pseudoseed('dumpster'))
                         _card:set_ability(_enhancement, nil, true)
-                        G.E_MANAGER:add_event(Event({
-                            func = function()
-                                if _card and not _card.removed then
-                                    _card:juice_up(0.3, 0.3)
-                                end
-                            return true
-                            end
-                        }))
+                        _card:juice_up(0.3, 0.3)
                     end
                 end
             end

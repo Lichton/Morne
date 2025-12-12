@@ -10,6 +10,7 @@ SMODS.Joker {
 	end,
     eternal_compat = true,
 	perishable_compat = false,
+	blueprint_compat = true,
 	calculate = function(self, card, context)
 		if context.before and not context.blueprint and not context.retrigger then
             --[[numDebuffed = 0
@@ -31,7 +32,7 @@ SMODS.Joker {
 				--num = ((#context.full_hand) - (#context.scoring_hand)) * tonumber(card.ability.extra.mult_gain)
                 card.ability.extra.mult = card.ability.extra.mult + num
 			    return {
-				    message = '+' .. tostring(num) .. ' ' .. 'k_mult' .. '!',
+				    message = '+' .. tostring(num) .. ' ' .. localize('k_mult') .. '!',
 				    colour = G.C.MULT,
 				    card = card
 			    }

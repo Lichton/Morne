@@ -7,12 +7,12 @@ SMODS.Joker {
       }
     },
 
-    --fix bug with generating jokers and shit
+    --FIX SELL PRICE ISSUES AND MULTIPLE COPIES ISSUES
 	rarity = 2,
 	atlas = 'Jokers',
 	pos = { x = 3, y = 0 },
 	cost = 6,
-    eternal_compat = true,
+    eternal_compat = false,
 	blueprint_compat = false,
 	
 	loc_vars = function(self, info_queue, card)
@@ -52,73 +52,72 @@ function Card:start_dissolve(dissolve_colours, silent, dissolve_time_fac, no_jui
             if joker.config.center.key == 'j_morne_cardboard_cutout' then
                 if joker.ability.extra.evil < 1 then
                     if self.ability.set == 'Joker' then
-                        --if G.jokers and #G.jokers.cards < G.jokers.config.card_limit then
                             editioner = self.edition
                             --print('hi')
-                            --G.GAME.joker_buffer = G.GAME.joker_buffer + 2
-                            --SMODS.bypass_create_card_edition = true
-                            play_sound('tarot1')
-                            joker:juice_up(0.3, 0.3)
-                            G.E_MANAGER:add_event(Event({
-                                func = function()
-                                    local jonkler = SMODS.add_card {
-                                    set = 'Joker',
-                                    edition = editioner,
-                                    rarity = 'Uncommon',
-                                    key_append = 'cardboard_cutout',
-                                    --badges = badgeList,
-                                    }
-                                    --SMODS.bypass_create_card_edition = false
-                                    jonkler:start_materialize()
-                                    for k, v in pairs(G.shared_stickers) do
-                                        if self.ability[k] then
-                                            jonkler.ability[k] = true
-                                        end
-                                    end
-                                    --G.GAME.joker_buffer = 0
-                                    --jonkler:set_edition(editioner, true)
-                                    return true
-                                    end
-                                }))
-                            
-                            --SMODS.bypass_create_card_edition = nil
-                            joker.ability.extra.num = joker.ability.extra.num - 1
-                            if joker.ability.extra.num <= 0 then
-                                joker.ability.extra.evil = 1
-                                G.E_MANAGER:add_event(Event({
-                                func = function()
-                                    if joker ~= self then
-                                        play_sound('tarot1')
-                                        joker.T.r = -0.2
-                                        joker:juice_up(0.3, 0.3)
-                                        joker.states.drag.is = true
-                                        joker.children.center.pinch.x = true
-                                        return {
-                                            message = localize('k_nope_ex'),
-                                            colour = G.C.GREEN
-                                        }
-                                    end
-                                    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, blockable = false,
-                                        func = function()
-                                                G.jokers:remove_card(joker)
-                                                joker:remove()
-                                                joker = nil
-                                             return {
-                                            message = localize('k_plus_joker'),
-                                            colour = G.C.GREEN
-                                        } 
-                                    end})) 
-                                    return true
+                            if #G.jokers.cards + G.GAME.joker_buffer <= G.jokers.config.card_limit then
+                                --SMODS.bypass_create_card_edition = true
+                                G.GAME.joker_buffer = G.GAME.joker_buffer + 1
+                                play_sound('tarot1')
+                                joker:juice_up(0.3, 0.3)
+                                if joker.ability.extra.num > 1 then
+                                    --card_eval_status_text(joker, 'extra', nil, nil, nil, {message = localize('b_cardboard'), colour = G.C.RARITY.Uncommon})                       
                                 end
-                            })) 
-                            --end
-    
+                                G.E_MANAGER:add_event(Event({
+                                    func = function()
+                                        local jonkler = SMODS.add_card {
+                                        set = 'Joker',
+                                        no_edition = true,
+                                        edition = editioner,
+                                        rarity = 'Uncommon',
+                                        key_append = 'cardboard_cutout',
+                                        --badges = badgeList,
+                                        }
+                                        --SMODS.bypass_create_card_edition = false
+                                            --jonkler:set_cost()
+                                        jonkler.base_cost = 0
+                                        jonkler.extra_cost = -jonkler.extra_cost
+                                        jonkler.sell_cost = 0
+                                        jonkler:start_materialize()
+                                        G.GAME.joker_buffer = 0
+                                        for k, v in pairs(G.shared_stickers) do
+                                            if self.ability[k] then
+                                                jonkler.ability[k] = true
+                                            end
+                                        end
+                                        --jonkler:set_edition(editioner, true)
+                                        return true
+                                        end
+                                    }))
+                                
+                                --SMODS.bypass_create_card_edition = nil
+                                joker.ability.extra.num = joker.ability.extra.num - 1
+                                if joker.ability.extra.num <= 0 then
+                                    joker.ability.extra.evil = 1
+                                    G.E_MANAGER:add_event(Event({
+                                    func = function()
+                                        if joker ~= self then
+                                            play_sound('tarot1')
+                                            joker.T.r = -0.2
+                                            joker:juice_up(0.3, 0.3)
+                                            joker.states.drag.is = true
+                                            joker.children.center.pinch.x = true
+                                            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, blockable = false,
+                                                func = function()
+                                                    G.jokers:remove_card(joker)
+                                                    joker:remove()
+                                                    joker = nil
+                                                    return true; end})) 
+                                                return true
+                                            end
+                                        end
+                                    })) 
+                                end
+                            end
                         end
                     end
                 end
             end
         end
-    end
     return ref
 end
     

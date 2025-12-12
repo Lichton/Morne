@@ -8,11 +8,17 @@ return {
             b_retriggers = 'Retriggers',
             b_grotesque_joker = 'Grotesque Joker',
             b_really_sad_joker = 'Really Sad Joker',
+            b_loathsome_joker = 'Loathsome Joker',
+            b_really_fat_joker = 'Really Fat Joker',
             b_dopple = 'Dopple!',
             b_dead_weight = 'Steeled!',
             b_cardboard = 'Copied?',
             b_stain = 'Splat!',
-            b_impractical = 'Impractical!'
+            b_impractical = 'Impractical!',
+            b_downgrade = 'Downgrade!',
+            b_five = 'Thumbs Up!',
+            b_five_negative = 'Thumbs Down...',
+            b_random_hand = '[hand type]'
         },
     },
     descriptions = {
@@ -103,6 +109,24 @@ return {
                 },
             },
 
+            j_morne_loathsome_joker = { 
+                name = "Loathsome Joker", 
+                text = { 
+                    "{C:chips}-#4#{} Chips for every {C:money}$1{} you have",
+                    "when defeating the {C:attention}Boss Blind{}",
+                    "{C:inactive}(Currently{} {C:chips}#2##1#{} {C:inactive}Chips){}"
+                },
+            },
+
+            j_morne_backwards_joker = { 
+                name = "Backwards Joker", 
+                text = { 
+                    "Selling this {C:attention}Joker{} in the",
+                    "{C:attention}Shop{} or in {C:attention}Packs{} makes an",
+                    "available Joker {C:dark_edition}Negative{}"
+                },
+            },
+
              j_morne_forbidden_schematic = { 
                 name = "Forbidden Schematic", 
                 text = { 
@@ -141,6 +165,7 @@ return {
 			        "{C:inactive}(Must have room){}"]]
                     "The next {C:attention}#1#{} Jokers {C:attention}sold{} or {C:attention}destroyed{} create an",
                     "{C:uncommon}Uncommon Joker{} with the same {C:attention}Stickers{} and {C:attention}Edition{}",
+                    "{C:inactive}(Created Jokers sell for $0){}"
 		        },
             },
 
@@ -169,7 +194,7 @@ return {
             j_morne_cyclist = { 
                 name = 'Cyclist',
 		        text = {
-			        "Increase rank of all scored cards",
+			        "Increase {C:attention}rank{} of all scored cards",
 			
 			        "if played hand contains a {C:attention}Straight{}",
 		        },
@@ -274,7 +299,7 @@ return {
                 name = "Lone Pawn",
 		        text = {
                     "{X:mult,C:white}X#2#{} Mult for each",
-                    "{C:attention}#1#{} played this round",
+                    "{C:attention}#1#{} played this Ante",
                      "{C:inactive}(Currently {}{X:mult,C:white}X#3#{}{C:inactive} Mult){}"
 		        },
             },
@@ -315,8 +340,34 @@ return {
             j_morne_striped_paint = { 
                 name = "Striped Paint",
 		        text = {
-                    "{C:hearts}Hearts{} and {C:diamonds}Diamonds{} held in hand",
-                    "give {C:mult}+#1#{} Mult",
+                    "{C:hearts}Hearts{} and {C:diamonds}Diamonds{} held",
+                    "in hand give {C:mult}+#1#{} Mult",
+		        },
+            },
+
+            j_morne_plastic_glove = { 
+                name = "Plastic Glove",
+		        text = {
+                    "{C:attention}+#2#{} hand size for every",
+                    "three {C:attention}5s{} in your full deck",
+                    "{C:inactive}(Currently{} {C:attention}+#1#{} {C:inactive}hand size){}"
+		        },
+            },
+
+            j_morne_mirror_image = { 
+                name = "Mirror Image",
+		        text = {
+                    "Scored {C:attention}2s{} and {C:attention}5s{} give {C:mult}+#1#{} Mult",
+                    "and {C:chips}+#2#{} Chips when held in hand",
+		        },
+            },
+
+            j_morne_lemon = { 
+                name = "Lemon",
+		        text = {
+                    "{C:mult}+#1#{} Mult",
+                     "Destroyed if played hand",
+                    "contains a {C:attention}#2#{}",
 		        },
             },
         },
@@ -382,7 +433,8 @@ return {
             bl_morne_bile= { 
                 name = "The Bile",
 		        text = {
-                    "Jokers cost {C:money}$1{} when triggered"
+                    "Lowest and highest ranked cards",
+                    "in played hand are debuffed"
 		        },
             }
         },
