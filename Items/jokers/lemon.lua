@@ -20,14 +20,16 @@ SMODS.Joker {
         if not card.ability.extra.poker_hand then
             card.ability.extra.poker_hand = pseudorandom_element(card.ability.extra.valid_types, pseudoseed('lemon'))
         end
-        for i, card_area in pairs(G.your_collection) do
-            if card.area == card_area then
-                return {
-                    vars = {
-                        card.ability.extra.mult,
-                        localize('b_random_hand')
-                    }
-                }   
+        if G.your_collection and #G.your_collection > 0 then
+            for i, card_area in pairs(G.your_collection) do
+                if card.area == card_area then
+                    return {
+                        vars = {
+                            card.ability.extra.mult,
+                            localize('b_random_hand')
+                        }
+                    }   
+                end
             end
         end
         return {
