@@ -370,6 +370,23 @@ return {
                     "contains a {C:attention}#2#{}",
 		        },
             },
+
+            j_morne_inverted_pyramid = { 
+                name = "Inverted Pyramid",
+		        text = {
+                    "Retrigger all scoring {C:attention}non-7s{}",
+                     "for each scoring {C:attention}7{}",
+		        },
+            },
+
+            j_morne_maxout = { 
+                name = "Maxout",
+		        text = {
+                    "{X:mult,C:white}X#2#{} Mult for each",
+                    "{C:attention}9{} in scored hand",
+                     "{C:inactive}(Base {}{X:mult,C:white}X#3#{}{C:inactive} Mult){}"
+		        },
+            },
         },
         Voucher = {
              v_morne_bushel = { 
@@ -426,7 +443,7 @@ return {
                 name = "The Drab",
 		        text = {
                     "Remove enhancements, editions, and seals",          
-                    "from played hand before scoring"
+                    "from played hand after scoring"
 		        },
             },
 

@@ -108,9 +108,12 @@ function Card:start_dissolve(dissolve_colours, silent, dissolve_time_fac, no_jui
                                                     joker = nil
                                                     return true; end})) 
                                                 return true
+                                            else
+                                            return true
                                             end
                                         end
                                     })) 
+
                                 end
                             end
                         end

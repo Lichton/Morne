@@ -75,6 +75,8 @@ assert(SMODS.load_file('Items/jokers/dead_weight.lua'))()
 assert(SMODS.load_file('Items/jokers/nickel_and_dime.lua'))()
 assert(SMODS.load_file('Items/jokers/ad_infinitum.lua'))()
 assert(SMODS.load_file('Items/jokers/tenancy.lua'))()
+assert(SMODS.load_file('Items/jokers/inverted_pyramid.lua'))()
+assert(SMODS.load_file('Items/jokers/maxout.lua'))()
 assert(SMODS.load_file('Items/jokers/plastic_glove.lua'))()
 
 --Rares
