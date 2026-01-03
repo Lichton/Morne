@@ -139,7 +139,7 @@ return {
                 name = 'Smog',
 		        text = {
 			        "Gains {C:mult}+#2#{} Mult per {C:attention}unscored{} card played,",
-                    "Loses all Mult if all played cards {C:attention}score{}",
+                    "loses all Mult if all played cards {C:attention}score{}",
                     "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
 		        },
             },
@@ -213,7 +213,7 @@ return {
 
                     --"{C:inactive}(Currently {}{C:mult}+#2#{}{C:inactive} Mult){}", 
 
-                    "If played hand exceeds {C:attention}Blind{} requirement,",
+                    "If played hand exceeds total {C:attention}Blind{} requirement,",
 
                     "apply {C:mult}Red Seal{} to a random played card"
 
@@ -272,8 +272,8 @@ return {
             j_morne_dead_weight = { 
                 name = "Dead Weight",
 		        text = {
-                    "If played hand contains a {C:attention}Straight{} the",
-                    "{C:attention}lowest-ranked{} scored card becomes a {C:attention}Steel{} card",
+                    "If played hand contains a {C:attention}Straight{} the {C:attention}lowest-ranked{}",
+                    "scored card becomes a {C:attention}Steel{} card",
 		        },
             },
 
@@ -357,8 +357,8 @@ return {
             j_morne_mirror_image = { 
                 name = "Mirror Image",
 		        text = {
-                    "Scored {C:attention}2s{} and {C:attention}5s{} give {C:mult}+#1#{} Mult",
-                    "and {C:chips}+#2#{} Chips when held in hand",
+                    "{C:attention}2s{} and {C:attention}5s{} give {C:mult}+#1#{} Mult",
+                    "when scored and {C:chips}+#2#{} Chips when held in hand",
 		        },
             },
 
@@ -385,6 +385,22 @@ return {
                     "{X:mult,C:white}X#2#{} Mult for each",
                     "{C:attention}9{} in scored hand",
                      "{C:inactive}(Base {}{X:mult,C:white}X#3#{}{C:inactive} Mult){}"
+		        },
+            },
+
+            j_morne_loosetongue = { 
+                name = "Loosetongue",
+		        text = {
+                    "If scored hand contains a {C:attention}face{} card,",
+                    "{C:attention}non-face{} cards give {C:mult}+#1#{} Mult when scored",
+		        },
+            },
+
+            j_morne_ruinful_jester = { 
+                name = "Ruinful Jester",
+		        text = {
+                    "Look Fanto!",
+                    "It's real!",
 		        },
             },
         },
@@ -450,8 +466,8 @@ return {
             bl_morne_bile= { 
                 name = "The Bile",
 		        text = {
-                    "Lowest and highest ranked cards",
-                    "in played hand are debuffed"
+                    "Lowest ranked cards in",
+                    "played hand are debuffed"
 		        },
             }
         },

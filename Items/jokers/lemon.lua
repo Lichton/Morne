@@ -15,7 +15,7 @@ SMODS.Joker {
 	rarity = 1,
 	atlas = 'Jokers',
 	pos = { x = 31, y = 0 },
-	cost = 5,
+	cost = 4,
 	loc_vars = function(self, info_queue, card)
         if not card.ability.extra.poker_hand then
             card.ability.extra.poker_hand = pseudorandom_element(card.ability.extra.valid_types, pseudoseed('lemon'))

@@ -24,7 +24,7 @@ SMODS.Blind {
                     end
 			    end
 
-                high_id = 0
+                --[[high_id = 0
                 for _, card_in_hand in ipairs(context.full_hand) do
 				    if not SMODS.has_no_rank(context.full_hand[_]) and not (context.full_hand[_].debuff) then
 					    if card_in_hand:get_id() == 14 then
@@ -35,16 +35,16 @@ SMODS.Blind {
 						    end
 					    end
                     end
-			    end
+			    end]]
 
                for _, card_in_hand in ipairs(context.full_hand) do
-                    if high_id == 1 then
+                    --[[if high_id == 1 then
                         high_id = 14
-                    end
+                    end]]
                     if low_id == 1 then
                         low_id = 14
                     end
-                    if card_in_hand:get_id() == high_id or card_in_hand:get_id() == low_id then
+                    if --[[card_in_hand:get_id() == high_id or]] card_in_hand:get_id() == low_id then
                         card_in_hand:juice_up(0.2, 0.2)
                         SMODS.debuff_card(card_in_hand, true, 'the_bile')
                     end

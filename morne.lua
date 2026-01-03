@@ -61,6 +61,7 @@ assert(SMODS.load_file('Items/jokers/mirror_image.lua'))()
 assert(SMODS.load_file('Items/jokers/contact_binary.lua'))()
 assert(SMODS.load_file('Items/jokers/sinking_feeling.lua'))()
 assert(SMODS.load_file('Items/jokers/lemon.lua'))()
+assert(SMODS.load_file('Items/jokers/loosetongue.lua'))()
 --Uncommons
 assert(SMODS.load_file('Items/jokers/cardboard_cutout.lua'))()
 assert(SMODS.load_file('Items/jokers/camo_joker.lua'))()
@@ -86,6 +87,7 @@ assert(SMODS.load_file('Items/jokers/smog.lua'))()
 assert(SMODS.load_file('Items/jokers/dumpster_diving.lua'))()
 assert(SMODS.load_file('Items/jokers/eruption.lua'))()
 assert(SMODS.load_file('Items/jokers/one_armed_bandit.lua'))()
+--assert(SMODS.load_file('Items/jokers/ruinful_jester.lua'))()
 
 --VOUCHERS
 
