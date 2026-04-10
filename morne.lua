@@ -39,6 +39,27 @@ SMODS.Atlas {
     atlas_table = 'ANIMATION_ATLAS' 
 }
 
+SMODS.Atlas {
+  key = "Enhancements",
+  path = "Enhancements.png",
+  px = 71, 
+  py = 95
+}
+
+local atlas_lc = SMODS.Atlas {
+      key = 'revelry' .. '_lc',
+      path = 'collabs/lc/' .. 'revelry' .. '_lc.png',
+      px = 71,
+      py = 95
+    }
+
+    local atlas_hc = SMODS.Atlas {
+      key = 'revelry' .. '_hc',
+      path = 'collabs/hc/' .. 'revelry' .. '_hc.png',
+      px = 71,
+      py = 95
+    }
+
 SMODS.current_mod.optional_features = {
   post_trigger = true
 }
@@ -58,6 +79,7 @@ assert(SMODS.load_file('Items/jokers/lone_pawn.lua'))()
 assert(SMODS.load_file('Items/jokers/forbidden_schematic.lua'))()
 assert(SMODS.load_file('Items/jokers/striped_paint.lua'))()
 assert(SMODS.load_file('Items/jokers/mirror_image.lua'))()
+assert(SMODS.load_file('Items/jokers/cutoff_point.lua'))()
 assert(SMODS.load_file('Items/jokers/contact_binary.lua'))()
 assert(SMODS.load_file('Items/jokers/sinking_feeling.lua'))()
 assert(SMODS.load_file('Items/jokers/lemon.lua'))()
@@ -79,15 +101,16 @@ assert(SMODS.load_file('Items/jokers/tenancy.lua'))()
 assert(SMODS.load_file('Items/jokers/inverted_pyramid.lua'))()
 assert(SMODS.load_file('Items/jokers/maxout.lua'))()
 assert(SMODS.load_file('Items/jokers/plastic_glove.lua'))()
+assert(SMODS.load_file('Items/jokers/ruinful_jester.lua'))()
 
 --Rares
 assert(SMODS.load_file('Items/jokers/stained_joker.lua'))()
 assert(SMODS.load_file('Items/jokers/backwards_joker.lua'))()
+assert(SMODS.load_file('Items/jokers/deadly_number.lua'))()
 assert(SMODS.load_file('Items/jokers/smog.lua'))()
 assert(SMODS.load_file('Items/jokers/dumpster_diving.lua'))()
 assert(SMODS.load_file('Items/jokers/eruption.lua'))()
 assert(SMODS.load_file('Items/jokers/one_armed_bandit.lua'))()
---assert(SMODS.load_file('Items/jokers/ruinful_jester.lua'))()
 
 --VOUCHERS
 
@@ -101,3 +124,31 @@ assert(SMODS.load_file('Items/blinds/myriad.lua'))()
 assert(SMODS.load_file('Items/blinds/morph.lua'))()
 assert(SMODS.load_file('Items/blinds/drab.lua'))()
 assert(SMODS.load_file('Items/blinds/bile.lua'))()
+
+--ENHANCEMENTS
+--assert(SMODS.load_file('Items/enhancements/recycled.lua'))()
+
+SMODS.DeckSkin {
+      key = "revelry" .. '_hearts',
+      suit = "Hearts",
+      loc_txt = {
+        ['en-us'] = "Ruinful Revelry"
+      },
+      palettes = {
+        {
+          key = 'lc',
+          ranks = {'King', 'Queen', 'Jack'},
+          display_ranks = {'King', 'Queen', 'Jack'},
+          pos_style = 'ranks',
+          atlas = atlas_lc.key
+        },
+        {
+          key = 'hc',
+          ranks = {'King', 'Queen', 'Jack'},
+          display_ranks = {'King', 'Queen', 'Jack'},
+          pos_style = 'ranks',
+          atlas = atlas_hc.key,
+          hc_default = true
+        }
+      }
+    }

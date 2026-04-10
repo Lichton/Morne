@@ -272,8 +272,8 @@ return {
             j_morne_dead_weight = { 
                 name = "Dead Weight",
 		        text = {
-                    "If played hand contains a {C:attention}Straight{} the {C:attention}lowest-ranked{}",
-                    "scored card becomes a {C:attention}Steel{} card",
+                    "If played hand contains a {C:attention}Straight{},",
+                    " {C:attention}lowest-ranked{} scored card becomes a {C:attention}Steel{} card",
 		        },
             },
 
@@ -357,8 +357,8 @@ return {
             j_morne_mirror_image = { 
                 name = "Mirror Image",
 		        text = {
-                    "{C:attention}2s{} and {C:attention}5s{} give {C:mult}+#1#{} Mult",
-                    "when scored and {C:chips}+#2#{} Chips when held in hand",
+                    "{C:attention}2s{} and {C:attention}5s{} give {C:mult}+#1#{} Mult when scored",
+                    "and {C:chips}+#2#{} Chips when held in hand",
 		        },
             },
 
@@ -399,8 +399,26 @@ return {
             j_morne_ruinful_jester = { 
                 name = "Ruinful Jester",
 		        text = {
-                    "Look Fanto!",
-                    "It's real!",
+                    --"Applying an Enhancement also applies a random Edition",
+                    "After {C:red}discarding{}, draw an {C:attention}additional{} card",
+                    "for each {C:attention}face card{} discarded",
+		        },
+            },
+
+            j_morne_cutoff_point = { 
+                name = "Cutoff Point",
+		        text = {
+                    "{C:attention}8s{} and {C:attention}3s{} held in hand",
+                    "at end of the round",
+                    "{C:attention}permanently{} gain {C:mult}+#1#{} Mult",
+		        },
+            },
+
+            j_morne_deadly_number = { 
+                name = "Deadly Number",
+		        text = {
+                    "If played hand contains a {C:attention}4{} and only {C:attention}two{} cards",
+                    "convert the {C:attention}left{} card into the {C:attention}right{} card",
 		        },
             },
         },
@@ -468,6 +486,16 @@ return {
 		        text = {
                     "Lowest ranked cards in",
                     "played hand are debuffed"
+		        },
+            }
+        },
+        Enhanced = {
+            m_morne_recycled = { 
+                name = "Recycled",
+		        text = {
+                    '{C:attention}+#1#{} hand size until',
+                    'next hand is played',
+                    'when {C:attention}discarded{}'
 		        },
             }
         },

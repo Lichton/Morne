@@ -3,13 +3,13 @@
 	"name": "Morne",
 	"display_name": "Morne",
 	"author": ["Tay"],
-	"description": "A mod attempting to add the most vanilla-adjacent content it can manage. Featuring art and ideas from Marmo, Dui Mauris Football, Tortilla, WolfaCola, Artist_Zero, CrazyAceKing, and code by Tay!",
+	"description": "A mod attempting to add the most vanilla-adjacent content it can manage. Featuring art and ideas from Marmo, Dui Mauris Football, Tortilla, WolfaCola, Artist_Zero, CrazyAceKing, and Nevernamed, alongside code by Tay!",
 	"prefix": "morne",
 	"main_file": "morne.lua",
 	"priority": 0,
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"dependencies": [
-		"Steamodded (>=1.*)",
-		"Lovely (>=0.6)"
+		"Steamodded (>=1.0.0~BETA-1221a)",
+    	"Lovely (>=0.7.1)"
     ]
 }
