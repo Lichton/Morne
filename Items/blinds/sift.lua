@@ -43,7 +43,7 @@ SMODS.Blind {
     end,
     collection_loc_vars = function(self)
         return {
-            vars = {'(Ranks)', '(Ranks)', '(Ranks)'}
+            vars = {'(Ranks)', '(Ranks)', '(Ranks)'},
         }
     end,
     calculate = function(self, blind, context)
@@ -86,7 +86,7 @@ SMODS.Blind {
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
                 func = (function()
-                    G.GAME.blind:wiggle()
+                    --G.GAME.blind:wiggle()
                     G.GAME.blind:set_text()
                     for k, v in pairs(G.playing_cards) do
                         if (context.after or context.setting_blind) then
@@ -151,6 +151,8 @@ function Game:start_run(args)
         end
     end
     G.GAME.current_round.the_sift_data = { first = num1, second = num2, third = num3 }
+    --G.GAME.blind:wiggle()
+    G.GAME.blind:set_text()
 	return ret
 end
 
@@ -189,6 +191,8 @@ function ease_ante(mod)
             end
         end
         G.GAME.current_round.the_sift_data = { first = num1, second = num2, third = num3 }
+        G.GAME.blind:wiggle()
+        G.GAME.blind:set_text()
     end
     local ref = ease_anteref(mod)
     return ref

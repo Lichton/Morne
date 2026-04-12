@@ -6,7 +6,7 @@ SMODS.Joker {
 	pos = { x = 32, y = 0 },
 	cost = 7,
     eternal_compat = true,
-    blueprint_compat = true,
+    blueprint_compat = false,
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -15,7 +15,7 @@ SMODS.Joker {
     }
     end,
 	calculate = function(self, card, context)
-        if context.selling_card and context.card.ability.set == 'Joker' and context.card.edition then
+        if context.selling_card and context.card.ability.set == 'Joker' and context.card.edition and not context.blueprint then
             validApply = {}
             for _, joker in ipairs(G.jokers.cards) do
                 edition = context.card.edition

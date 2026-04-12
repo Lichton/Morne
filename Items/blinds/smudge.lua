@@ -19,7 +19,10 @@ SMODS.Blind {
     end,
     collection_loc_vars = function(self)
         return {
-            vars = {'(Suits)'}
+            vars = {
+            '(Suits)',
+            colours = { G.C.WHITE }
+            }
         }
     end,
     calculate = function(self, blind, context)
@@ -35,7 +38,7 @@ SMODS.Blind {
                         end
                     end
                     G.GAME.current_round.the_smudge.suit = pseudorandom_element(potSuits, pseudoseed('the_smudge' .. '1'))
-                    G.GAME.blind:wiggle()
+                    --G.GAME.blind:wiggle()
                     G.GAME.blind:set_text()
                     for k, v in pairs(G.playing_cards) do
                         if (context.after or context.setting_blind) then
@@ -92,6 +95,7 @@ function ease_ante(mod)
             end
         end
         G.GAME.current_round.the_smudge.suit = pseudorandom_element(potSuits, pseudoseed('the_smudge' .. '1'))
+
     end
     local ref = ease_anteref(mod)
     return ref
