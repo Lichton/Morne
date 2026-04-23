@@ -1,7 +1,7 @@
 SMODS.Joker {
 	key = 'cutoff_point',
     config = { extra = {
-		mult = 2,
+		mult = 4,
 	} },
 	rarity = 1,
 	atlas = 'Jokers',

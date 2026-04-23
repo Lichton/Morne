@@ -28,7 +28,7 @@ SMODS.Joker {
 		end
 
 		if context.individual and context.cardarea == G.play and context.other_card then
-            if not context.other_card:is_face() then
+            if doTrigger == true and not context.other_card:is_face() then
 				return {
 					mult = card.ability.extra.mult,
 				}
