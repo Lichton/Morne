@@ -6,7 +6,7 @@ SMODS.Joker {
 	pos = { x = 25, y = 0 },
 	cost = 6,
     eternal_compat = true,
-    blueprint_compat = false,
+    blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
         --[[current = 2
         if G.jokers then
