@@ -21,7 +21,7 @@ SMODS.Joker {
 		}
 	end,
 	calculate = function(self, card, context)
-		if context.starting_shop and G.GAME.dollars <= card.ability.extra.money_max then
+		if context.starting_shop and to_number(G.GAME.dollars) <= card.ability.extra.money_max then
 			local myShopItems = {}
 			if G.shop_jokers then
 				for _, joker in ipairs(G.shop_jokers.cards) do

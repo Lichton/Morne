@@ -15,14 +15,18 @@ SMODS.Joker {
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = { 
-				localize(G.GAME.current_round.verified_card.suit, 'suits_plural'),
-				colours = { G.C.SUITS[G.GAME.current_round.verified_card.suit] } -- sets the colour of the text affected by `{V:1}`
+				--localize(G.GAME.current_round.verified_card.suit, 'suits_plural'),
+				--colours = { G.C.SUITS[G.GAME.current_round.verified_card.suit] } 
+				localize(G.GAME.current_round.ancient_card.suit, 'suits_plural'),
+				colours = { G.C.SUITS[G.GAME.current_round.ancient_card.suit] }
 			}
 		}
 	end,
     calculate = function(self, card, context)
 		if context.cardarea == G.play and context.repetition and not context.repetition_only then
-			if context.other_card:is_suit(G.GAME.current_round.verified_card.suit) then
+			--if context.other_card:is_suit(G.GAME.current_round.verified_card.suit) then
+			if context.other_card:is_suit(G.GAME.current_round.ancient_card.suit) then
+			
 				return {
 					message = localize('k_again_ex'),
 					repetitions = card.ability.extra.repetitions,
@@ -34,7 +38,7 @@ SMODS.Joker {
 	end
 }
 
-local igo = Game.init_game_object
+--[[local igo = Game.init_game_object
 function Game:init_game_object()
 	local ret = igo(self)
 	ret.current_round.verified_card = { suit = 'Hearts' }
@@ -53,4 +57,4 @@ function SMODS.current_mod.reset_game_globals(run_start)
 		local verified_card = pseudorandom_element(valid_verified_cards, pseudoseed('verified_rand' .. G.GAME.round_resets.ante))
 		G.GAME.current_round.verified_card.suit = verified_card.base.suit
 	end
-end
+end]]

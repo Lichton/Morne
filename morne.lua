@@ -46,6 +46,27 @@ SMODS.Atlas {
   py = 95
 }
 
+SMODS.Atlas {
+  key = 'flux_atlas',
+  path = "flux.png",
+  px = 71, 
+  py = 95
+}
+
+SMODS.Atlas {
+  key = 'flux_hc_atlas',
+  path = "flux_hc.png",
+  px = 71, 
+  py = 95
+}
+
+SMODS.Atlas {
+  key = 'Tarots',
+  path = "Tarots.png",
+  px = 71, 
+  py = 95
+}
+
 local atlas_lc = SMODS.Atlas {
       key = 'revelry' .. '_lc',
       path = 'collabs/lc/' .. 'revelry' .. '_lc.png',
@@ -60,9 +81,12 @@ local atlas_lc = SMODS.Atlas {
       py = 95
     }
 
-SMODS.current_mod.optional_features = {
-  post_trigger = true
-}
+SMODS.current_mod.optional_features = function()
+    return {
+        quantum_enhancements = true,
+        post_trigger = true,
+    }
+end
 
 --JOKERS
 
@@ -80,6 +104,7 @@ assert(SMODS.load_file('Items/jokers/forbidden_schematic.lua'))()
 assert(SMODS.load_file('Items/jokers/striped_paint.lua'))()
 assert(SMODS.load_file('Items/jokers/mirror_image.lua'))()
 assert(SMODS.load_file('Items/jokers/cutoff_point.lua'))()
+assert(SMODS.load_file('Items/jokers/contained_within.lua'))()
 assert(SMODS.load_file('Items/jokers/contact_binary.lua'))()
 assert(SMODS.load_file('Items/jokers/sinking_feeling.lua'))()
 assert(SMODS.load_file('Items/jokers/lemon.lua'))()
@@ -99,9 +124,12 @@ assert(SMODS.load_file('Items/jokers/nickel_and_dime.lua'))()
 assert(SMODS.load_file('Items/jokers/ad_infinitum.lua'))()
 assert(SMODS.load_file('Items/jokers/tenancy.lua'))()
 assert(SMODS.load_file('Items/jokers/inverted_pyramid.lua'))()
+assert(SMODS.load_file('Items/jokers/hurricane.lua'))()
 assert(SMODS.load_file('Items/jokers/maxout.lua'))()
+assert(SMODS.load_file('Items/jokers/dyscalculia.lua'))()
 assert(SMODS.load_file('Items/jokers/plastic_glove.lua'))()
 assert(SMODS.load_file('Items/jokers/ruinful_jester.lua'))()
+assert(SMODS.load_file('Items/jokers/snakes_and_ladders.lua'))()
 
 --Rares
 assert(SMODS.load_file('Items/jokers/stained_joker.lua'))()
@@ -125,8 +153,31 @@ assert(SMODS.load_file('Items/blinds/morph.lua'))()
 assert(SMODS.load_file('Items/blinds/drab.lua'))()
 assert(SMODS.load_file('Items/blinds/bile.lua'))()
 
+--TAROTS
+assert(SMODS.load_file('Items/tarots/fountain.lua'))()
+
+to_big = to_big or function(n)
+  return n
+	end
+to_number = to_number or function(n)
+		return n
+	end
 --ENHANCEMENTS
 --assert(SMODS.load_file('Items/enhancements/recycled.lua'))()
+assert(SMODS.load_file('Items/enhancements/flux.lua'))()
+--[[local injectitems_ref = SMODS.injectItems
+G.morne = {}
+SMODS.injectItems = function()
+    injectitems_ref()
+    G.morne.flux_atlas = {}
+      for i = 2, 14 do
+          local fluxcard = SMODS.create_sprite(0, 0, 1, 1, 'morne_flux_atlas', {
+              x = i,
+              y = 0
+              })
+          table.insert(G.morne.flux_atlas, fluxcard)
+      end
+    end]]
 
 SMODS.DeckSkin {
       key = "revelry" .. '_hearts',

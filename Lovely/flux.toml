@@ -1,0 +1,114 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 1
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = "elseif specific_vars.playing_card then"
+position = "before"
+match_indent = true
+payload = '''
+elseif _c.key == 'm_morne_flux' and specific_vars and specific_vars.value then 
+    full_UI_table.name = {}
+    if not G.SETTINGS.colourblind_option then
+        localize{type = 'other', key = 'playing_card', set = 'Other', nodes = full_UI_table.name, vars = {localize(specific_vars.value, 'ranks'), localize('b_flux'), colours = {HEX("b1c759")}}}
+    else
+        localize{type = 'other', key = 'playing_card', set = 'Other', nodes = full_UI_table.name, vars = {localize(specific_vars.value, 'ranks'), localize('b_flux'), colours = {HEX("a0cc00")}}}
+    end
+    full_UI_table.name = full_UI_table.name[1]
+'''
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = "new_card.pinned = other.pinned"
+position = "before"
+match_indent = true
+payload = '''
+if SMODS.has_enhancement(new_card, 'm_morne_flux') then
+    if(new_card:get_id() < 15 and new_card:get_id() > 1) then
+        if not G.SETTINGS.colourblind_option then
+            new_card.children.front.atlas = G.ASSET_ATLAS["morne_flux_atlas"]
+            new_card.children.front:set_sprite_pos({x=new_card:get_id()-2, y=0})
+        else
+            new_card.children.front.atlas = G.ASSET_ATLAS["morne_flux_hc_atlas"]
+            new_card.children.front:set_sprite_pos({x=new_card:get_id()-2, y=0})
+        end
+    else
+        if not G.SETTINGS.colourblind_option then
+            new_card.children.front.atlas = G.ASSET_ATLAS["morne_flux_atlas"]
+            new_card.children.front:set_sprite_pos({x=13, y=0})
+        else
+            new_card.children.front.atlas = G.ASSET_ATLAS["morne_flux_hc_atlas"]
+            new_card.children.front:set_sprite_pos({x=13, y=0})
+        end
+        
+    end
+end
+'''
+
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = "v:set_sprites(nil, v.config.card)"
+position = "after"
+match_indent = true
+payload = '''
+if SMODS.has_enhancement(v, 'm_morne_flux') then
+    if(v:get_id() < 15 and v:get_id() > 1) then
+        if v and v.children and v.children.front then
+            if not G.SETTINGS.colourblind_option then
+                v.children.front.atlas = G.ASSET_ATLAS["morne_flux_atlas"]
+                v.children.front:set_sprite_pos({x= v:get_id()-2, y=0})
+            else
+                v.children.front.atlas = G.ASSET_ATLAS["morne_flux_hc_atlas"]
+                v.children.front:set_sprite_pos({x= v:get_id()-2, y=0})
+            end
+        end
+    else
+        if v and v.children and v.children.front then
+            if not G.SETTINGS.colourblind_option then
+                v.children.front.atlas = G.ASSET_ATLAS["morne_flux_atlas"]
+                v.children.front:set_sprite_pos({x=13, y=0})
+            else
+                v.children.front.atlas = G.ASSET_ATLAS["morne_flux_hc_atlas"]
+                v.children.front:set_sprite_pos({x=13, y=0})
+            end
+        end
+    end
+end
+'''
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "self:set_base(new_card)"
+position = "after"
+match_indent = true
+payload = '''
+if SMODS.has_enhancement(self, 'm_morne_flux') then
+    if(self:get_id() < 15 and self:get_id() > 1) then
+        if self and self.children and self.children.front then
+            if not G.SETTINGS.colourblind_option then
+                self.children.front.atlas = G.ASSET_ATLAS["morne_flux_atlas"]
+                self.children.front:set_sprite_pos({x= self:get_id()-2, y=0})
+            else
+                self.children.front.atlas = G.ASSET_ATLAS["morne_flux_hc_atlas"]
+                self.children.front:set_sprite_pos({x= self:get_id()-2, y=0})
+            end
+        end
+    else
+        if self and self.children and self.children.front then
+            if not G.SETTINGS.colourblind_option then
+                self.children.front.atlas = G.ASSET_ATLAS["morne_flux_atlas"]
+                self.children.front:set_sprite_pos({x=13, y=0})
+            else
+                self.children.front.atlas = G.ASSET_ATLAS["morne_flux_hc_atlas"]
+                self.children.front:set_sprite_pos({x=13, y=0})
+            end
+        end
+    end
+end
+'''

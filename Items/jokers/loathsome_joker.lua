@@ -27,14 +27,14 @@ SMODS.Joker {
     end,
 	calculate = function(self, card, context)
         if context.end_of_round and context.cardarea == G.jokers and context.beat_boss then
-            card.ability.extra.saved_chips = card.ability.extra.saved_chips - (G.GAME.dollars * 10)
-            if(G.GAME.dollars > 0) then
+            card.ability.extra.saved_chips = card.ability.extra.saved_chips - (to_number(G.GAME.dollars) * 10)
+            if(to_number(G.GAME.dollars) > 0) then
                 return {
                 message = localize('b_downgrade'),
                 colour = G.C.CHIPS,
                 }
             end
-            if(G.GAME.dollars < 0) then
+            if(to_number(G.GAME.dollars) < 0) then
                 return {
                 message = localize('k_upgrade_ex'),
                 colour = G.C.CHIPS,

@@ -6,7 +6,7 @@ SMODS.Joker {
 	rarity = 1,
 	atlas = 'Jokers',
 	pos = { x = 45, y = 0 },
-	cost = 6,
+	cost = 4,
 	loc_vars = function(self, info_queue, card)
         return {
             vars = {

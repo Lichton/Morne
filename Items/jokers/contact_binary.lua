@@ -1,10 +1,5 @@
 SMODS.Joker {
 	key = 'contact_binary',
-	config = {
-      extra = {
-
-      }
-    },
 	rarity = 1,
 	atlas = 'Jokers',
 	pos = { x = 28, y = 0 },
@@ -15,7 +10,7 @@ SMODS.Joker {
 		--mult_gain = 1,
 		--current_mult = 0,
 		--max_per = 5,
-		mult = 1,
+		mult = 2,
 	} },
 	loc_vars = function(self, info_queue, card)
         return {

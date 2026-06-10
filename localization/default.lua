@@ -18,7 +18,8 @@ return {
             b_downgrade = 'Downgrade!',
             b_five = 'Thumbs Up!',
             b_five_negative = 'Thumbs Down...',
-            b_random_hand = '[hand type]'
+            b_random_hand = '[hand type]',
+            b_flux = 'Flux'
         },
     },
     descriptions = {
@@ -50,7 +51,7 @@ return {
                 name = "Captcha", 
                 text = { 
                     "Retrigger all played {V:1}#1#{},",
-			        "suit changes every round"
+			        "{s:0.8}suit changes at end of round{}"
                 } 
             },
 
@@ -409,16 +410,52 @@ return {
                 name = "Cutoff Point",
 		        text = {
                     "{C:attention}8s{} and {C:attention}3s{} held in hand",
-                    "at end of the round",
-                    "{C:attention}permanently{} gain {C:mult}+#1#{} Mult",
+                    "at end of round gain",
+                    "{C:mult}+#1#{} Mult {C:attention}permanently{}",
 		        },
             },
 
             j_morne_deadly_number = { 
                 name = "Deadly Number",
 		        text = {
-                    "If played hand contains a {C:attention}4{} and only {C:attention}two{} cards",
+                    "If played hand contains a {C:attention}4{} and only {C:attention}two{} cards,",
                     "convert the {C:attention}left{} card into the {C:attention}right{} card",
+		        },
+            },
+
+            j_morne_contained_within = { 
+                name = "Contained Within",
+		        text = {
+                    "{C:attention}4s{}, {C:attention}7s{}, and {C:attention}9s{} give {C:mult}+2{} Mult when scored",
+                    "for each remaining {C:attention}4{}, {C:attention}7{}, and {C:attention}9{} in {C:attention}deck{}",
+                    "{C:inactive}(Currently{} {C:mult}+#1#{} {C:inactive}Mult){}"
+		        },
+            },
+
+            j_morne_snakes_and_ladders = { 
+                name = "Snakes n' Ladders",
+		        text = {
+                    "Gains {X:mult,C:white}X#1#{} Mult when card scores",
+                    "with rank {C:attention}lower{} than {C:attention}previous{} scored card,",
+                    "resets if scored card is the {C:attention}same{} or {C:attention}higher{} rank",
+                    "{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult, Previous Scored:{}{C:attention} #3#{}{C:inactive}){}"
+		        },
+            },
+
+            j_morne_dyscalculia = { 
+                name = "Dyscalculia",
+		        text = {
+                    "{C:attention}#2#s{}, {C:attention}#3#s{}, and {C:attention}#4#s{} are drawn {C:attention}face-down{}",
+                    "but give {X:mult,C:white}X#1#{} Mult when scored",
+                    "{C:inactive}(Ranks changes at end of round){}"
+		        },
+            },
+
+            j_morne_hurricane = { 
+                name = "Hurricane",
+		        text = {
+                    "Scored {C:attention}6s{} retrigger {C:attention}once{}",
+                    "for every {C:attention}6{} held in hand",
 		        },
             },
         },
@@ -497,7 +534,25 @@ return {
                     'next hand is played',
                     'when {C:attention}discarded{}'
 		        },
+            },
+            m_morne_flux = { 
+                name = "Flux",
+		        text = {
+                    
+                    '{X:mult,C:white}X#1#{} Mult',
+                    'Has no suit'
+		        },
             }
+        },
+        Tarot = {
+            c_morne_fountain = {
+                name = "The Fountain",
+                text = {
+                    "Enhances {C:attention}#1#{}",
+                    "selected cards",
+                    "to be {C:attention}#2# Cards",
+                },
+            },
         },
     }
 }

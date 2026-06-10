@@ -10,7 +10,7 @@ SMODS.Joker {
     loc_vars = function(self, info_queue, card)
         local leading = "+"
         local name = localize('b_grotesque_joker')
-        if (card.ability.extra.base_mult + -G.GAME.dollars) < 0 then
+        if (card.ability.extra.base_mult + -to_number(G.GAME.dollars)) < 0 then
             leading = ""
         end
         if math.random(1, 15) == 14 then
@@ -19,7 +19,7 @@ SMODS.Joker {
         return {
             vars = {
                 card.ability.extra.base_mult,
-                card.ability.extra.base_mult + -G.GAME.dollars,
+                card.ability.extra.base_mult + -to_number(G.GAME.dollars),
                 leading,
                 name,
             }
@@ -28,7 +28,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
         if context.joker_main then
 		    return {
-			    mult = math.max((card.ability.extra.base_mult + -G.GAME.dollars), -(mult)),
+			    mult = math.max((card.ability.extra.base_mult + -to_number(G.GAME.dollars)), -(mult)),
 		    }
 		end
 
